@@ -1,9 +1,9 @@
 <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>City</mat-label>
-      <input matInput placeholder="enter a city"  value="">
-      
+      <input matInput #searchedProduct placeholder="enter a city" >
+      <button mat-raised-button  (click)="submitSearch(searchedProduct.value)" >Search</button>
     </mat-form-field>
-    <button mat-raised-button >Search</button>
-   
+    
+   {{searchedProduct.value}}
   </form>

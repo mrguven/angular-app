@@ -21,9 +21,17 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './search-form.component.css'
 })
 export class SearchFormComponent {
+   
   constructor(private _bottomSheet: MatBottomSheet) {}
-
-
-
+   
   
+ submitSearch( searchedProduct:any) {
+  console.log('dfgdgf');
+fetch(`https://dummyjson.com/products/search?q=${searchedProduct}`)
+.then(res => res.json())
+.then(res=>console.log(res))
+.catch(e=>console.log(e));
+}
+
+
 }
