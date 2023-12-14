@@ -12,11 +12,12 @@ import {
 } from '@angular/material/bottom-sheet';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
+import { RangeSliderComponent } from '../range-slider/range-slider.component';
 
 @Component({
   selector: 'app-search-form',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule,MatButtonModule, MatBottomSheetModule],
+  imports: [FormsModule, MatFormFieldModule, MatInputModule,MatButtonModule, MatBottomSheetModule,RangeSliderComponent],
   templateUrl: './search-form.component.html',
   styleUrl: './search-form.component.css'
 })
