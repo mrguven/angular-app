@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchFormComponent } from './search-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('SearchFormComponent', () => {
   let component: SearchFormComponent;
@@ -8,7 +9,7 @@ describe('SearchFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SearchFormComponent]
+      imports: [SearchFormComponent, BrowserAnimationsModule]
     })
     .compileComponents();
     
@@ -19,5 +20,6 @@ describe('SearchFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    const searchForm = fixture.nativeElement.querySelector('[data-testid=search-form]');
   });
 });

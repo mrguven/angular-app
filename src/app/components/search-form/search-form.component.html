@@ -1,11 +1,12 @@
 <form class="example-form">
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" data-testid="search-form">
       <mat-label>City</mat-label>
       <input matInput #searchedProduct placeholder="enter a city" >
       <button mat-raised-button  (click)="submitSearch(searchedProduct.value)" >Search</button>
     </mat-form-field>
     
    {{searchedProduct.value}}
+  
   </form>
-
   <app-range-slider></app-range-slider>
+  

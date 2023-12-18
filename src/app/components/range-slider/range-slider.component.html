@@ -1,8 +1,10 @@
-<input matNativeControl type="number"  value={{lowestPrice.value}}>
-<input matNativeControl type="number" value={{highestPrice.value}}>
-
+<div> <p>min: <b>{{lowestPrice.value}}</b></p> 
+ <p>max:<b>{{highestPrice.value}}</b></p> 
+</div>
+<label for="price">price range</label>
 <mat-slider min="0" max="3000">
-    <input #lowestPrice value="300" matSliderStartThumb>
+    
+    <input #lowestPrice value="100" matSliderStartThumb>
     <input #highestPrice value="600" matSliderEndThumb>
   </mat-slider>
   

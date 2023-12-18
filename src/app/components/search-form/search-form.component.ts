@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -13,26 +13,35 @@ import {
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { RangeSliderComponent } from '../range-slider/range-slider.component';
+import { Products } from '../../model/products';
+import { fromFetch } from 'rxjs/fetch';
+import { map } from 'rxjs';
+import { ProductService } from '../../service/product.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ServiceModule } from '../../service/service.module';
+
 
 @Component({
   selector: 'app-search-form',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule,MatButtonModule, MatBottomSheetModule,RangeSliderComponent],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule,MatButtonModule, MatBottomSheetModule,RangeSliderComponent, HttpClientModule],
   templateUrl: './search-form.component.html',
   styleUrl: './search-form.component.css'
 })
 export class SearchFormComponent {
+
+  @Output()
+  results:Products = {} as Products
    
-  constructor(private _bottomSheet: MatBottomSheet) {}
+  constructor(private _bottomSheet: MatBottomSheet,
+    private productService: ProductService) {}
    
   
- submitSearch( searchedProduct:any) {
+ submitSearch( searchedProduct:string) {
   console.log('dfgdgf');
-fetch(`https://dummyjson.com/products/search?q=${searchedProduct}`)
-.then(res => res.json())
-.then(res=>console.log(res))
-.catch(e=>console.log(e));
-}
 
+
+  this.productService.getProducts(searchedProduct).subscribe(res => this.results = res)
+ }
 
 }
