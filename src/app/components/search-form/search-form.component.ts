@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceModule } from '../../service/service.module';
 
 
+
 @Component({
   selector: 'app-search-form',
   standalone: true,
@@ -31,17 +32,18 @@ import { ServiceModule } from '../../service/service.module';
 export class SearchFormComponent {
 
   @Output()
-  results:Products = {} as Products
+  results: EventEmitter<Products>= new EventEmitter<Products>()
    
   constructor(private _bottomSheet: MatBottomSheet,
     private productService: ProductService) {}
    
   
+    
  submitSearch( searchedProduct:string) {
   console.log('dfgdgf');
 
-
-  this.productService.getProducts(searchedProduct).subscribe(res => this.results = res)
+  
+  this.productService.getProducts(searchedProduct).subscribe(res => this.results.emit(res)  )
  }
 
 }

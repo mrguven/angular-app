@@ -8,17 +8,24 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceModule } from './service/service.module';
 import { Products } from './model/products';
+import { ProductsComponent } from './components/products/products.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MatCardModule, MatFormFieldModule, MatInputModule,SearchFormComponent, ServiceModule],
+  imports: [CommonModule, RouterOutlet,ProductsComponent,
+     MatCardModule, MatFormFieldModule, MatInputModule,
+     SearchFormComponent, ServiceModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  @Input()
+ 
   products:Products = {} as Products
+  getProducts(product:Products){
+console.log(product);
+this.products=product
 
+}
 
  
 
