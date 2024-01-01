@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatInputModule} from '@angular/material/input';
 @Component({
@@ -9,5 +9,14 @@ import {MatInputModule} from '@angular/material/input';
   styleUrl: './range-slider.component.css'
 })
 export class RangeSliderComponent {
+  constructor(private elementRef: ElementRef){
+     lowestPrice:ElementRef
+  }
+  lowestPrice:number
+
+getlowestPrice(){
+  console.log(this.lowestPrice.nativeElement.value);
+}
+ 
 
 }

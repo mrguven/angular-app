@@ -14,4 +14,6 @@ export class ProductsComponent {
   @Input()
   results: Products = {} as Products
 
+  
+
 }
