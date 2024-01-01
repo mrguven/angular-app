@@ -11,12 +11,23 @@ import {MatInputModule} from '@angular/material/input';
 export class RangeSliderComponent {
   constructor(private elementRef: ElementRef){
      lowestPrice:ElementRef
+     
   }
-  lowestPrice:number
+  
+  LowestPrice:string='';
 
-getlowestPrice(){
-  console.log(this.lowestPrice.nativeElement.value);
+  HighestPrice:string='';
+
+
+  getLowPrice(event:string){
+  console.log(event);
+  console.log('hello');
+  this.LowestPrice=event;
 }
  
+getHighPrice(pr:string){
+  console.log(pr);
+  this.HighestPrice=pr;
+}
 
 }

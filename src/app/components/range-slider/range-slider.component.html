@@ -4,7 +4,7 @@
 <label for="price">price range</label>
 <mat-slider min="0" max="3000">
     
-    <input #lowestPrice (keyup)="onkey(lowestPrice.value)"  value="100" matSliderStartThumb>
-    <input #highestPrice value="600" matSliderEndThumb>
+    <input #lowestPrice (change)="getLowPrice(lowestPrice.value)"  value="100" matSliderStartThumb>
+    <input #highestPrice value="600" (change)="getHighPrice(highestPrice.value)" matSliderEndThumb>
   </mat-slider>
   
