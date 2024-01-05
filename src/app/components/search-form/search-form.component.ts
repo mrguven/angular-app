@@ -30,7 +30,7 @@ import { ServiceModule } from '../../service/service.module';
   styleUrl: './search-form.component.css'
 })
 export class SearchFormComponent {
-
+  pr:string='';
   @Output()
   results: EventEmitter<Products>= new EventEmitter<Products>()
    
@@ -42,8 +42,14 @@ export class SearchFormComponent {
  submitSearch( searchedProduct:string) {
   console.log('dfgdgf');
 
+
   
   this.productService.getProducts(searchedProduct).subscribe(res => this.results.emit(res)  )
+ }
+
+ getHighestPrice(price:string){
+console.log(price);
+this.pr=price;
  }
 
 }
