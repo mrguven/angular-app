@@ -12,27 +12,15 @@ import { ProductsComponent } from './components/products/products.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,ProductsComponent,
+  imports: [CommonModule, RouterOutlet,
      MatCardModule, MatFormFieldModule, MatInputModule,
-     SearchFormComponent, ServiceModule],
+     ServiceModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
  
-  products:Products = {} as Products
-  getProducts(product:Products){
-console.log(product);
-this.products=product
-
-}
-
  
 
-
-  title = 'angular-app';
-
-
-
-
 }
+
