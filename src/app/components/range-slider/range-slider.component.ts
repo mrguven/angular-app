@@ -16,8 +16,8 @@ export class RangeSliderComponent {
      
   }
 
-  newLowestPrice:string="";
-newHighestPrice:string="";
+  newLowestPrice:string="0";
+newHighestPrice:string="3000";
   @Output() 
   LowestPrice: EventEmitter<string>=new EventEmitter<string>;
   @Output() 

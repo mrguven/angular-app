@@ -1,10 +1,14 @@
-<div> <p>min: <b>{{lowestPrice.value}}</b></p> 
- <p>max:<b>{{highestPrice.value}}</b></p> 
+<div> 
+  
+  <p><b>min:</b></p> <input type="number" name="lowestPrice" value={{newLowestPrice}} (change)="getLowPrice(lowestPriceInput.value)" #lowestPriceInput id="lowestPrice"> <br>
+  <p><b>max:</b></p>  <input type="number" name="highestPrice" value={{newHighestPrice}} (change)="getHighPrice(highestPriceInput.value)" #highestPriceInput id="highestPrice">
+  
+
 </div>
 <label for="price">price range</label>
 <mat-slider min="0" max="3000">
     
-    <input #lowestPrice (change)="getLowPrice(lowestPrice.value)"  value="100" matSliderStartThumb>
-    <input #highestPrice value="600" (change)="getHighPrice(highestPrice.value)" matSliderEndThumb>
+    <input #lowestPrice (change)="getLowPrice(lowestPrice.value)"  value={{newLowestPrice}} matSliderStartThumb>
+    <input #highestPrice value={{newHighestPrice}} (change)="getHighPrice(highestPrice.value)" matSliderEndThumb>
   </mat-slider>
   
