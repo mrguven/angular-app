@@ -13,7 +13,7 @@ import { ProductsComponent } from '../products/products.component';
 export class TestComponent {
 
   products:Products = {} as Products
-  getProducts(product:Products){
+  getProductsInput(product:Products){
 console.log(product);
 this.products=product
   }
