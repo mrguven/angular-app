@@ -15,6 +15,9 @@ export class RangeSliderComponent {
      lowestPrice:ElementRef
      
   }
+
+  newLowestPrice:string="";
+newHighestPrice:string="";
   @Output() 
   LowestPrice: EventEmitter<string>=new EventEmitter<string>;
   @Output() 
@@ -26,11 +29,16 @@ export class RangeSliderComponent {
   console.log('hello');
   
   this.LowestPrice.emit(event);
+  this.newLowestPrice=event;
 }
  
 getHighPrice(pr:string){
   console.log(pr);
   this.HighestPrice.emit(pr);
+this.newHighestPrice=pr;
 }
+
+
+
 
 }

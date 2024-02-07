@@ -8,7 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {
   MatBottomSheet,
   MatBottomSheetModule,
-  MatBottomSheetRef,
+  MatBottomSheetRef
 } from '@angular/material/bottom-sheet';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
