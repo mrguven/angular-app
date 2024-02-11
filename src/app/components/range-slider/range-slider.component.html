@@ -8,7 +8,7 @@
 <label for="price">price range</label>
 <mat-slider min="0" max="3000">
     
-    <input #lowestPrice (change)="getLowPrice(lowestPrice.value)"  value={{newLowestPrice}} matSliderStartThumb>
-    <input #highestPrice value={{newHighestPrice}} (change)="getHighPrice(highestPrice.value)" matSliderEndThumb>
+    <input #lowestPrice (change)="getLowPrice(lowestPrice.value, newHighestPrice)"  value={{newLowestPrice}} matSliderStartThumb>
+    <input #highestPrice value={{newHighestPrice}} (change)="getHighPrice(highestPrice.value, newLowestPrice)" matSliderEndThumb>
   </mat-slider>
   

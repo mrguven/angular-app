@@ -40,6 +40,7 @@ export class SearchFormComponent {
   pr: string = '';
   @Output()
   results: EventEmitter<Products> = new EventEmitter<Products>();
+allResults!:Products;
 
   constructor(
     private _bottomSheet: MatBottomSheet,
@@ -50,12 +51,29 @@ export class SearchFormComponent {
     console.log('dfgdgf');
 
     this.productService
-      .getProducts(searchedProduct)
-      .subscribe((res) => this.results.emit(res));
+      .getProducts(searchedProduct) // subscribe yerine pipe kullan
+      .subscribe((res) => {
+        this.allResults=res;
+        this.results.emit(res);
+      });
+
   }
 
   getHighestPrice(price: string) {
-    console.log(price);
-    this.pr = price;
+    const priceNmr:number = +price;
+    const filteredSubProducts = this.allResults.products.
+filter(product=> product.price <= priceNmr);
+const filteredProducts: Products = {
+  limit: this.allResults.limit,
+  products: filteredSubProducts,
+  skip: this.allResults.skip,
+  total: this.allResults.total,
+}
+
+this.results.emit(filteredProducts);
+
+
+    console.log(filteredProducts);
+    
   }
 }
