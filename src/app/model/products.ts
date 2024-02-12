@@ -14,10 +14,10 @@ export interface Product{
     id:  number;
     images:string[];
     price: number;
-rating: number;
-stock: number;
-thumbnail: string;
-title: string;
+    rating: number;
+    stock: number;
+    thumbnail: string;
+    title: string;
 
 }
 
