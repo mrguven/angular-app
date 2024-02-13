@@ -1,18 +1,22 @@
 
 
 <div >{{results.limit}}</div>
-<div *ngFor="let result of results.products">
-
-<mat-card  class="example-card" >
+<div id="main-div">
+<div *ngFor="let result of results.products" >
+<div id="product">
+<mat-card  class="example-card"  >
     <mat-card-header>
       <mat-card-title-group>
         <mat-card-title>{{result.title}}</mat-card-title>
         <mat-card-subtitle> {{result.description}} </mat-card-subtitle>
         <img mat-card-md-image src={{result.images[0]}} alt="Image of a Shiba Inu">
+        <mat-card-subtitle> Price:{{result.price}}€ </mat-card-subtitle>
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
      
     </mat-card-content>
   </mat-card>
+</div>
+</div>
 </div>

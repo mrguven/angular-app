@@ -1,0 +1,12 @@
+#main-div{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 'product product';
+    grid-template-rows: auto;
+}
+
+#product {
+    grid-area: product;
+    margin: 2px;
+   
+}
