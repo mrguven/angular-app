@@ -12,6 +12,7 @@ import { RangeSliderComponent } from '../range-slider/range-slider.component';
 import { Products } from '../../model/products';
 import { ProductService } from '../../service/product.service';
 import { HttpClientModule } from '@angular/common/http';
+import { error } from 'node:console';
 
 
 @Component({
@@ -35,6 +36,9 @@ export class SearchFormComponent {
   @Output()
   results: EventEmitter<Products> = new EventEmitter<Products>();
 allResults!:Products;
+errormessage:string=""
+errorcon:boolean=true
+
 
   constructor(
     private _bottomSheet: MatBottomSheet,
@@ -43,13 +47,21 @@ allResults!:Products;
 
   submitSearch(searchedProduct: string) {
     console.log('dfgdgf');
+if(searchedProduct===''){
+this.errormessage='*products not found'
+this.errorcon=false
+}
 
-    this.productService
-      .getProducts(searchedProduct) // subscribe yerine pipe kullan
-      .subscribe((res) => {
-        this.allResults=res;
-        this.results.emit(res);
-      });
+else {
+  this.productService
+  .getProducts(searchedProduct) // subscribe yerine pipe kullan
+  .subscribe((res) => {
+    this.allResults=res;
+    this.results.emit(res);
+    this.errorcon=true
+  });
+}
+    
 
   }
 
@@ -70,4 +82,8 @@ this.results.emit(filteredProducts);
     console.log(filteredProducts);
     
   }
+
+
+    
+    
 }

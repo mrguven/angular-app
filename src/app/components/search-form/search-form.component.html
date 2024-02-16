@@ -4,6 +4,7 @@
       <input matInput #searchedProduct placeholder="enter a product" >
       <button mat-raised-button  (click)="submitSearch(searchedProduct.value)" >Search</button>
     </mat-form-field>
+    <p *ngIf="errorcon"><i>{{errormessage}}</i></p>
     
    {{searchedProduct.value}}
   
