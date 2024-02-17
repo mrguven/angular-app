@@ -37,8 +37,8 @@ export class SearchFormComponent {
   results: EventEmitter<Products> = new EventEmitter<Products>();
 allResults!:Products;
 errormessage:string=""
-errorcon:boolean=true
-
+errorcon:boolean=false
+firstres1!:Products;
 
   constructor(
     private _bottomSheet: MatBottomSheet,
@@ -49,17 +49,22 @@ errorcon:boolean=true
     console.log('dfgdgf');
 if(searchedProduct===''){
 this.errormessage='*products not found'
-this.errorcon=false
+this.errorcon=true
+console.log('empty');
+setTimeout(()=>{
+  this.errorcon=false
+},3000)
 }
 
 else {
   this.productService
-  .getProducts(searchedProduct) // subscribe yerine pipe kullan
-  .subscribe((res) => {
+  .getProducts(searchedProduct)
+  .subscribe((res) => {        // subscribe yerine pipe kullan
     this.allResults=res;
     this.results.emit(res);
-    this.errorcon=true
-  });
+    this.errorcon=false
+  });                                
+  
 }
     
 
