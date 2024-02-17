@@ -1,6 +1,14 @@
 <p>wheather-results works!</p>
 
 
+
+<form action="/getWeather" method="get">
+    <input #city type="text" name="city" id="city">
+    <button mat-raised-button color="primary" (click)="getCity(city.value)" >Search</button>
+</form>
+
+
+
 <button (click)="getNumber()" >Generate</button> <br>
 
 <button (click)="changeNumber()">change</button>

@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-wheather-results',
   standalone: true,
-  imports: [],
+  imports: [MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './wheather-results.component.html',
   styleUrl: './wheather-results.component.css'
 })
@@ -24,7 +27,9 @@ let newNumber= +this.generatedNumber * 10000000000000000
 this.generatedNumber=newNumber
 }
 
-  
+  getCity(cityName:string){
+    
+  }
 
 
 
